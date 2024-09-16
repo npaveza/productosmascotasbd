@@ -63,7 +63,7 @@ public class ProductomascotabdController {
     }
 
     @PostMapping
-    public EntityModel<Productomascotabd> createCita(@Validated @RequestBody Productomascotabd productomascotabd) {
+    public EntityModel<Productomascotabd> createEnvio(@Validated @RequestBody Productomascotabd productomascotabd) {
         Productomascotabd createEnvio = productomascotabdService.createEnvio(productomascotabd);
             return EntityModel.of(createEnvio,
                 WebMvcLinkBuilder.linkTo(WebMvcLinkBuilder.methodOn(this.getClass()).getProductomascotabdById(createEnvio.getId())).withSelfRel(),
