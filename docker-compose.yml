@@ -1,0 +1,23 @@
+version: '3'
+services:
+  app:
+    image: productosmascotasbd
+    build:
+      context: .
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING.DATASOURCE.URL=jdbc:oracle:thin:@fullstacks6_tp?TNS_ADMIN=/Wallet_FullStackS6
+      - SPRING.DATASOURCE.USERNAME=FSI_MS_DB
+      - SPRING.DATASOURCE.PASSWORD=ClaseFullStackS6-
+      - SPRING_DATASOURCE_DRIVER_CLASS_NAME=oracle.jdbc.driver.OracleDriver
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=create
+      - SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT=org.hibernate.dialect.OracleDialect
+      - SPRING_JPA_SHOW_SQL=true
+      - TNS_ADMIN=/Wallet_FullStackS6
+    networks:
+      - default
+
+networks:
+  default:
+    driver: bridge
